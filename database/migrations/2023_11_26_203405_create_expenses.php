@@ -26,7 +26,7 @@ return new class extends Migration
 
             $table->foreign('payment_method_id')->references('id')->on('payment_methods');
             $table->foreign('category_id')->references('id')->on('expenses_categories');
-            $table->foreign('status')->references('id')->on('cards_statuses');
+            $table->foreign('status')->references('id')->on('expenses_statuses');
             $table->foreign('card')->references('id')->on('cards');
 
         });

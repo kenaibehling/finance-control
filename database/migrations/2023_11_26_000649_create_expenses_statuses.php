@@ -11,17 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cards', function (Blueprint $table) {
-
+        Schema::create('expenses_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string("name", 32);
-            $table->unsignedBigInteger("type_id");
-            $table->unsignedBigInteger("provider_id");
+            $table->string("description", 32);
             $table->timestamps();
-
-            $table->foreign('type_id')->references('id')->on('cards_types');
-            $table->foreign('provider_id')->references('id')->on('cards_providers');
-
         });
     }
 
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cards');
+        Schema::dropIfExists('expenses_statuses');
     }
 };
